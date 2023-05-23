@@ -15,7 +15,7 @@ export const ProductGallery = styled.div`
   gap: 24px;
 `;
 
-export const PriceFilter = styled.div`
+const PriceFilter = styled.div`
   margin-top: 30px;
   display: flex;
   align-items: center;
@@ -23,3 +23,5 @@ export const PriceFilter = styled.div`
   color: #333;
   font-size: 20px;
 `;
+
+export default PriceFilter
