@@ -1,46 +1,40 @@
-import { GetServerSideProps,} from "next";
+import useSWR from "swr";
 import { useRouter } from "next/router";
-import { getProductById, Product as ProductType } from "../../../fake-data";
+import Link from "next/link";
+
+import { Product as ProductType } from "../../../fake-data";
 import ProductCard from "../../components/ProductCard";
-import ProductContainer, { PageTitle } from "./[id].style";
-import { ParsedUrlQuery } from "querystring";
+import ProductContainer, { PageTitle, BackLink } from "./[id].style";
 
-interface ProductProps {
-  product: ProductType;
-}
+const fetcher = (params: string[]) => {
+  // const [url, id] = params;
+  // console.log("path", path, "id2:", id);
+  return fetch(`https://fakestoreapi.com${params}`).then((res) =>
+    res.json()
+  );
+};
 
-const Product = ({ product }: ProductProps) => {
+const Product = () => {
   const router = useRouter();
+  const { id } = router.query;
+  console.log("id:", id);
 
-  if (router.isFallback) {
-    console.log("Loading...");
+  const { data: product } = useSWR<ProductType>(id?`/products/${id}`:null, fetcher);
+  console.log("product", product);
 
-    return <div>Loading...</div>;
-  }
+  if (!product) return <div>loading</div>;
 
   return (
     <>
       <PageTitle>商品詳細頁面</PageTitle>
+      <BackLink>
+        <Link href="/products">回產品列表</Link>
+      </BackLink>
       <ProductContainer>
         <ProductCard product={product} all />
       </ProductContainer>
     </>
   );
-};
-interface Params extends ParsedUrlQuery {
-  id: string;
-}
-
-export const getServerSideProps: GetServerSideProps<ProductProps, Params> = async ({
-  params,
-}) => {
-  // params! 是TypeScript 用來斷言 params 一定不是 null 或 undefined
-  const api = `https://fakestoreapi.com/products/${params!.id}`;
-  const res = await fetch(api);
-  const json: ProductType = await res.json();
-  return {
-    props: { product: json },
-  };
 };
 
 export default Product;

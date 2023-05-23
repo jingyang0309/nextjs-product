@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { getAllProduct, Direction, sortByPrice } from "../../fake-data";
-import ProductCard from "../components/ProductCard";
+import { getAllProduct, Direction, sortByPrice } from "../../../fake-data";
+import ProductCard from "../../components/ProductCard";
 import PriceFilter, { PageTitle, ProductGallery } from "./products.style";
 import { useRouter } from "next/router";
 

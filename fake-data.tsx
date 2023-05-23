@@ -46,6 +46,7 @@ export function getAllProduct() {
 }
 
 export function sortByPrice(direction: Direction) {
+  
   return FAKE_PRODUCT_DATA.sort((a, b) => {
     if (direction === "ASC") {
       return a.price - b.price;
