@@ -109,6 +109,8 @@ body {
   width: 120px !important;
   height: 167px !important;
   position: relative !important;
+}
+.image > span {
   display: inline-block;
 }
 .productDetail {

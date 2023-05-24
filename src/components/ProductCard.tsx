@@ -13,7 +13,7 @@ const ProductCard = ({ product, all }: ProductCardProps) => {
   return (
     <div key={id} className="product">
       <div className="image">
-        <Image src={image} alt="product" layout="fill" objectFit="cover" />
+        <Image src={image} alt="product" layout="fill" objectFit="contain" />
       </div>
       <div className="productDetail">
         <Link href={`/product/${id}`} passHref legacyBehavior className="productTitle">

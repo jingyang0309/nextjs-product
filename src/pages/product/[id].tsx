@@ -9,7 +9,7 @@ import ProductContainer, { PageTitle, BackLink } from "./[id].style";
 const fetcher = (params: string[]) => {
   // const [url, id] = params;
   // console.log("path", path, "id2:", id);
-  return fetch(`https://fakestoreapi.com${params}`).then((res) =>
+  return fetch(`/api/${params}`).then((res) =>
     res.json()
   );
 };
