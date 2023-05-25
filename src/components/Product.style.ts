@@ -11,13 +11,6 @@ export const Product = styled.div`
   width: 600px;
 `;
 
-export const ProductDetail = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-`;
-
 export const ImageWrapper = styled.div`
   width: 120px;
   height: 167px;

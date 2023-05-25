@@ -5,7 +5,7 @@ import { PageTitle, ProductGallery } from "./products.style";
 
 const fetcher = (url: string) =>
   fetch(`/api/products`).then((res) => {
-    console.log('log',res);
+    // console.log('log',res);
     return res.json();
   });
 

@@ -1,11 +1,13 @@
 import { AppProps } from "next/app";
 import "../styles/globals.css";
-import Link from "next/link";
+import Header from "@component/components/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+
   return (
     <>
-      <Link href={"/"}>首頁</Link>
+    <Header/>
       <Component {...pageProps} />
     </>
   );

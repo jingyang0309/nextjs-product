@@ -26,7 +26,7 @@ const Product = () => {
 
   return (
     <>
-      <PageTitle>商品詳細頁面</PageTitle>
+      <PageTitle>商品詳細頁面 useSWR CSR</PageTitle>
       <BackLink>
         <Link href="/products">回產品列表</Link>
       </BackLink>
