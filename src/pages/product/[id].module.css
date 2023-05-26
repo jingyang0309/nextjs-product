@@ -1,0 +1,15 @@
+.pageTitle {
+  color: #333;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.backLink {
+  text-align: center;
+  text-decoration: underline;
+}
+.productContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
