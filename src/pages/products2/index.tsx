@@ -4,6 +4,7 @@ import ProductCard from "../../components/ProductCard";
 import PriceFilter, { PageTitle, ProductGallery } from "./products.style";
 import { useRouter } from "next/router";
 
+//shallow router
 const Home = () => {
   const [direction, setDirection] = useState<Direction>("ASC");
   const router = useRouter();

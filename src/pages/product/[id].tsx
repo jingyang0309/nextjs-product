@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { Product as ProductType } from "../../../fake-data";
 import ProductCard from "../../components/ProductCard";
-import ProductContainer, { PageTitle, BackLink } from "./[id].style";
+import productCss from './[id].style'
 
 const fetcher = (params: string[]) => {
   // const [url, id] = params;
@@ -26,13 +26,13 @@ const Product = () => {
 
   return (
     <>
-      <PageTitle>商品詳細頁面 useSWR CSR</PageTitle>
-      <BackLink>
+      <h1 className={.pageTitle}>商品詳細頁面 useSWR CSR</h1>
+      <div className={.backLink}>
         <Link href="/products">回產品列表</Link>
-      </BackLink>
-      <ProductContainer>
+      </div>
+      <div className={.productContainer}>
         <ProductCard product={product} all />
-      </ProductContainer>
+      </div>
     </>
   );
 };
