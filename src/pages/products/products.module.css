@@ -1,27 +1,22 @@
-import { styled } from "styled-components";
-
-
-export const PageTitle = styled.h1`
+.pageTitle {
   color: #333;
   margin-top: 30px;
   text-align: center;
-`;
+}
 
-export const ProductGallery = styled.div`
+.productGallery {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: 30px 0;
   gap: 24px;
-`;
+}
 
-const PriceFilter = styled.div`
+.priceFilter {
   margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #333;
   font-size: 20px;
-`;
-
-export default PriceFilter
+}
