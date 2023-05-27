@@ -4,16 +4,13 @@ import headerStyle from './header.module.css'
 function Header() {
   return (
     <>
-      <Link href={"/"} className={headerStyle.link}>
-        首頁
+      <Link href="/products/csr" className={headerStyle.link}>
+        CSR
       </Link>
-      <Link href="/products" className={headerStyle.link}>
-        CSR,backend,mongodb
-      </Link>
-      <Link href="/productsssr" className={headerStyle.link}>
+      <Link href="/products/ssr" className={headerStyle.link}>
         SSR
       </Link>
-      <Link href="/productsssg" className={headerStyle.link}>
+      <Link href="/products/ssg" className={headerStyle.link}>
         SSG
       </Link>
     </>

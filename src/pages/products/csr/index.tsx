@@ -1,8 +1,9 @@
 import useSWR from "swr";
-import ProductCard from "../../components/ProductCard";
-import { Product } from "../../../fake-data";
+import ProductCard from "../../../components/ProductCard";
+import { Product } from "../../../../fake-data";
 import Head from "next/head";
-import productsCss from "./products.module.css";
+import productsCss from "../products.module.css";
+import Loading from "@component/components/Loading/Loading";
 
 const fetcher = (url: string) =>
   fetch(`/api/products`).then((res) => {
@@ -13,19 +14,19 @@ const fetcher = (url: string) =>
 const Home = () => {
   const { data: products } = useSWR<Product[]>("/products", fetcher);
 
-  if (!products) return <div>loading</div>;
+  if (!products)return <Loading/>;
 
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <title>商品頁CSR</title>
+        <title>商品列表 CSR useSWR</title>
       </Head>
-      <h1 className={productsCss.pageTitle}>商品列表</h1>
+      <h1 className={productsCss.pageTitle}>商品列表 CSR useSWR</h1>
       <div className={productsCss.productGallery}>
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} type="csr"/>
         ))}
       </div>
     </>
