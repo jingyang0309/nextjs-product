@@ -8,7 +8,8 @@ import Loading from "@component/components/Loading/Loading";
 
 const Product = ({ products }:{products:Product[]}) => {
   if (!products)return <Loading/>;
-
+  console.log('aaaa',process.env.NODE_ENV);
+  
   return (
     <>
       <Head>
