@@ -6,7 +6,8 @@ import { Product as ProductType } from "../../../../fake-data";
 import ProductCard from "../../../components/ProductCard";
 import productCss from "../[id].module.css";
 import Head from "next/head";
-import Loading from "@component/components/Loading/Loading";
+import Loading from "@/components/Loading/Loading";
+
 
 const fetcher = (params: string[]) => {
   return fetch(`/api/${params}`).then((res) => res.json());

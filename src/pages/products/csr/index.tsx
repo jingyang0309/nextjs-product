@@ -3,7 +3,7 @@ import ProductCard from "../../../components/ProductCard";
 import { Product } from "../../../../fake-data";
 import Head from "next/head";
 import productsCss from "../products.module.css";
-import Loading from "@component/components/Loading/Loading";
+import Loading from "@/components/Loading/Loading";
 
 const fetcher = (url: string) =>
   fetch(`/api/products`).then((res) => {

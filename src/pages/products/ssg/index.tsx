@@ -3,7 +3,7 @@ import { Product } from "../../../../fake-data";
 import ProductCard from "../../../components/ProductCard";
 import Head from "next/head";
 import productsCss from "../products.module.css";
-import Loading from "@component/components/Loading/Loading";
+import Loading from "@/components/Loading/Loading";
 
 const Product = ({ products }: { products: Product[] }) => {
   if (!products) return <Loading />;

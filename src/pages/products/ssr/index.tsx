@@ -3,13 +3,11 @@ import { Product } from "../../../../fake-data";
 import ProductCard from "../../../components/ProductCard";
 import Head from "next/head";
 import productsCss from "../products.module.css";
-import Loading from "@component/components/Loading/Loading";
+import Loading from "@/components/Loading/Loading";
 
+const Product = ({ products }: { products: Product[] }) => {
+  if (!products) return <Loading />;
 
-const Product = ({ products }:{products:Product[]}) => {
-  if (!products)return <Loading/>;
-  console.log('aaaa',process.env.NODE_ENV);
-  
   return (
     <>
       <Head>
@@ -20,19 +18,30 @@ const Product = ({ products }:{products:Product[]}) => {
       <h1 className={productsCss.pageTitle}>商品列表 SSR</h1>
       <div className={productsCss.productGallery}>
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} type="ssr"/>
+          <ProductCard key={product.id} product={product} type="ssr" />
         ))}
       </div>
     </>
   );
 };
-export const getServerSideProps: GetServerSideProps = async ({ params, req }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  req,
+}) => {
   const baseUrl: string = req.headers.host ? `http://${req.headers.host}` : "";
+console.log('zzzz:',req.headers);
+
   const apiUrl = `${baseUrl}/api/products`;
-  const res = await fetch(apiUrl);
-  const json:[] = await res.json();
+  let result: object[] = [];
+  try {
+    const res = await fetch(apiUrl);
+    result = await res.json();
+  } catch (error) {
+    console.log("error:", error);
+  }
+
   return {
-    props: { products: json },
+    props: { products: result },
   };
 };
 

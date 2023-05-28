@@ -6,7 +6,8 @@ import ProductCard from "../../../components/ProductCard";
 import productCss from "../[id].module.css";
 import Link from "next/link";
 import Head from "next/head";
-import Loading from "@component/components/Loading/Loading";
+import Loading from "@/components/Loading/Loading";
+
 
 interface ProductProps {
   product: ProductType;

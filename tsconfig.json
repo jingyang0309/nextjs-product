@@ -20,7 +20,8 @@
       }
     ],
     "paths": {
-      "@component/*": ["./src/*"]
+      "@/components/*": ["./src/components/*"],
+      "@/src/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/ProductCard.tsx", "src/components/q.ts", "next.config.js", "src/app/layout.tsx"],
